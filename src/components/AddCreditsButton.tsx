@@ -1,7 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Coins } from 'lucide-react';
-import { useGame } from '../contexts/GameContext';
+import { Coins } from "lucide-react";
+import React from "react";
+import { useGame } from "../contexts/GameContext";
+import Button from "./ui/Button";
 
 interface AddCreditsButtonProps {
   amount?: number;
@@ -15,15 +15,14 @@ const AddCreditsButton: React.FC<AddCreditsButtonProps> = ({ amount = 10 }) => {
   };
 
   return (
-    <motion.button
-      className="flex items-center gap-1 py-1 px-3 bg-gradient-to-r from-primary-500 to-accent-500 text-white rounded-full text-sm font-medium shadow-sm"
+    <Button
+      variant="gradient"
+      className="py-1 px-3 rounded-full text-sm font-medium shadow-sm"
       onClick={handleAddCredits}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      icon={<Coins size={14} />}
     >
-      <span>+{amount}</span>
-      <Coins size={14} />
-    </motion.button>
+      +{amount}
+    </Button>
   );
 };
 
